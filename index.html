@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>Snappys Beta</title>
+    <!-- Path to Framework7 Library CSS, Material Theme -->
+    <link rel="icon" type="image/png" href="lib/img/favico.png" sizes="160x160">
+    <link rel="stylesheet" href="lib/css/framework7.material.css">
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link rel="stylesheet" href="lib/css/framework7.material.colors.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="lib/css/my-app.css">
+  </head>
+  <body class="layout-dark">  
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '174545523114418',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v2.10'
+      });
+      FB.AppEvents.logPageView();   
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+    <!-- Views -->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main">
+        <div class="pages navbar-through">
+          <!-- Page, "data-page" contains page name -->
+          <div data-page="index" class="page">
+            <!-- Scrollable page content -->
+            <div class="page-content" id="bg">
+              <!-- <img id="background" class="img-background" src="media/background2.jpg"> -->
+                <div class="title"> 
+                  <h1 style="padding-top:0px"><img src="lib/img/favico.png" class="img-logo"><i>snappys</i></h1>
+                  <div class="openload">
+                    <label for="load">
+                      <img class="img-load" src="lib/img/camera.png"><br>
+                      Open photo
+                    </label>
+                    <input type="file" id="load" name="loader" accept="image/*" style="display:none" onchange='openFile(event)'>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popover popover-menu menu">
+        <div class="popover-inner">
+          <div class="list-block">
+            <ul>
+              <li><a id="info" href="#" class="list-button item-link close-popover">Details</a></li>
+              <li><a href="help.html" class="list-button item-link close-popover">Help & Feedback</a></li>
+              <li><a href="about.html" class="list-button item-link close-popover">About</a></li>
+              <li><a id="exit" href="#" class="list-button item-link close-popover">Exit</a></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    <div class="picker-modal picker-modal-demo modal1">
+      <div class="toolbar theme-white">
+        <div class="toolbar-inner">
+          <div class="left"></div>
+          <div class="right"><a href="#" style="color:gray" class="link close-picker">Done</a></div>
+        </div>
+      </div>
+      <div class="picker-modal-inner">
+        <div class="content-block">
+          <div class="range-slider">
+            <label for="contras">Brightness</label>
+                  <input id="bright" name="bright" type="range" min="1" max="100" value="1" step="0.1"/>
+            <label for="bright">Darkness</label>
+                  <input id="brightmin" name="brightmin" type="range" min="-100" max="-1" value="-1" step="0.1"/>
+            <label for="alpha">Transparation</label>
+                  <input id="alpha" name="alpha" type="range" min="1" max="255" value="255" step="0.1"/>
+            <label for="contras">Contrass+</label>
+                  <input id="contras" name="contras" type="range" min="1" max="20" value="1" step="0.5"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="picker-modal picker-modal-sharpen">
+      <div class="toolbar theme-white">
+        <div class="toolbar-inner">
+          <div class="left"></div>
+          <div class="right"><a href="#" style="color:gray" class="link close-picker">Done</a></div>
+        </div>
+      </div>
+      <div class="picker-modal-inner">
+        <div class="content-block">
+          <div class="range-slider">
+            <label for="sharpen">Sharpen</label>
+                  <input id="sharpen" name="sharpen" type="range" min="1" max="100" value="1" step="0.1"/>
+            <label for="blur">Box-Blur</label>
+                  <input id="blur" name="blur" type="range" min="1" max="100" value="1" step="0.1"/>
+            <label for="gaussian">Gaussian Blur</label>
+                  <input id="gaussian" name="gaussian" type="range" min="1" max="100" value="0.1" step="1"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="picker-modal picker-modal-edgedetect">
+      <div class="toolbar theme-white">
+        <div class="toolbar-inner">
+          <div class="left"></div>
+          <div class="right"><a href="#" style="color:gray" class="link close-picker">Done</a></div>
+        </div>
+      </div>
+      <div class="picker-modal-inner">
+        <div class="content-block">
+          <div class="range-slider">
+            <label for="ed1">EdgeDetection 1</label>
+                  <input id="ed1" name="ed1" type="range" min="1" max="1000" value="1" step="1"/>
+            <label for="ed2">EdgeDetection 2</label>
+                  <input id="ed2" name="ed2" type="range" min="1" max="1000" value="1" step="1"/>
+            <label for="ed3">EdgeDetection 3</label>
+                  <input id="ed3" name="ed3" type="range" min="1" max="1000" value="1" step="1"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="picker-modal picker-modal-detail">
+      <div class="toolbar theme-gray">
+        <div class="toolbar-inner">
+          <div class="left titled">Details</div>
+          <div class="right"><a href="#" style="color:gray" class="link close-picker"><i class="icon icon-close"></i></a></div>
+        </div>
+      </div>
+      <div class="picker-modal-inner">
+          <div id="hay" class="info">
+            <div class="row no-gutter space">
+              <div class="col-20">Resolution</div>
+              <div>:</div>
+              <div id="resValue" class="col-66"></div>
+            </div>
+            <div class="row no-gutter space">
+              <div class="col-20">File Name</div>
+              <div>:</div>
+              <div id="nmValue" class="col-66"></div>
+            </div>
+            <div class="row no-gutter space">
+              <div class="col-20">Type File</div>
+              <div>:</div>
+              <div id="typValue" class="col-66"></div>
+            </div>
+            <div class="row no-gutter space">
+              <div class="col-20">Size File</div>
+              <div>:</div>
+              <div id="sizValue" class="col-66"></div>
+            </div>
+            <div class="row no-gutter space">
+              <div class="col-20">Last Mod</div>
+              <div>:</div>
+              <div id="dateValue" class="col-66"></div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="lib/js/framework7.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="lib/js/my-app.js"></script>
+  </body>
+</html>
+              

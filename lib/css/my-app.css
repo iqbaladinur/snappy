@@ -1,0 +1,147 @@
+.img-load{
+	text-align: center;
+	width: 40px;
+	height: 40px;
+	-webkit-filter: invert(100%);
+	filter:invert(100%);
+}
+.img-load.lof{
+	width:28px;
+	height: 28px;
+}
+.img-load.lot{
+	width: 20px;
+	height: 20px;
+}
+
+.button-menu{
+  padding-top: 5px; 
+  height: 140px;
+  line-height: 140px;
+  border-radius: 3px;
+}
+.img-background{
+	position: absolute;
+	width:100%;
+	height:100%;
+}
+
+.splash-1{
+	width: 100%;
+	height: 100%;
+	background-image: url('../../media/b1.jpg');
+	background-position: center; 
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.splash-2{
+	width: 100%;
+	height: 100%;
+	background-image: url('../../media/b2.jpg');
+	background-position: center; 
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.splash-3{
+	width: 100%;
+	height: 100%;
+	background-image: url('../../media/b3.jpg');
+	background-position: center; 
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.title{
+	padding-top: 60px;
+	position: relative;
+	text-align:center;
+}
+.openload{
+	padding-top: 320px;
+}
+.img-logo{
+	width: 30px;
+	height: 30px;
+}
+#lock{
+	padding-top: 75px;
+	padding-right: 15px;
+	padding-left: 15px;
+	max-height: 500px;
+	overflow: auto;
+}
+@media screen and (max-height: 480px) {
+	.openload{
+		padding-top: 200px;
+	}
+	.title{
+		padding-top: 70px;
+		font-size: x-small;
+	}
+	.img-load{
+		width: 30px;
+		height: 30px;
+	}
+}
+@media screen and (min-height: 800px) {
+	.openload{
+		padding-top: 500px;
+	}
+	.title{
+		padding-top: 150px;
+		font-size: x-large; 
+	}
+	.img-logo{
+		width: 50px;
+		height: 50px;
+	}
+	.img-load{
+		width:60px;
+		height:60px;
+	}
+}
+@media screen and (min-width: 1024px){
+	.openload{
+		padding-top: 360px;
+	}
+	#lock{
+		padding-right: 300px;
+		padding-left: 300px;
+		max-height: 600px;
+	}
+}
+.menu{
+	width: 200px;
+}
+.img-responsive{
+  padding-top: 0px;
+  width: 100%;
+  height: 100%;	
+}
+.paddingme{
+  padding-top: 0px;
+  width: 100%;
+  height: 100%;
+}
+.padding{
+	padding-left: 20px;
+	padding-bottom: 7px;
+}
+.pad-menu{
+	padding-top: 15px;
+}
+.editimage{
+	width: 20px;
+	height: 20px;
+}
+.info{
+	padding: 10px;
+	text-align: left;
+	color: gray;
+	font-size: 13px;
+}
+.titled{
+	padding-left: 10px;
+}
+.modal1{
+	height: 300px;
+}
